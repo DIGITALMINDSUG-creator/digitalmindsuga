@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL MINDS UGANDA</title>
+    <link rel="icon" type="image/png" href="digital minds Uganda vvv.png" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Academy | Digital Minds Uganda</title>
+    <marquee class="marquee" behavior="scroll" direction="left">
+        Welcome to digital minds Uganda! Join our oline ICT classes and boost your tech skills!
+    </marquee>
+    <title>DIGITAL MINDS UGANDA</title>
+    <h1>Enjoy our our services for any issue just contact us</h1>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            color: var(--dark);
+        }
+
+        /* THE LOCK MECHANISM */
+        .content-locked {
+            filter: blur(30px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .gate-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* PROFESSIONAL CARDS */
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e2e8f0;
+            color: var(--dark);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="gateOverlay" class="gate-overlay">
+        <div id="stepLogin" class="card">
+            <h2 style="margin-top:0">Digital Minds Academy</h2>
+            <p style="color: var(--gray)">Enter your email to access your lessons.</p>
+            <input type="email" id="studentEmail" placeholder="name@example.com">
+            <button class="btn btn-primary" onclick="goToPayment()">Continue to Lessons</button>
+            <a href="HOME.html">back</a>
+        </div>
+
+        <div id="stepPayment" class="card" style="display:none">
+            <h3>Choose Your Plan</h3>
+            <p style="color: var(--gray)">Unlock premium content via Pesapal</p>
+            <style>
+                .rainbow-pay-button {
+                    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+                    background-size: 400% 400%;
+                    color: white;
+                    padding: 14px 28px;
+                    border: none;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    text-align: center;
+                    text-shadow: 0 0 4px #fff;
+                    box-shadow: 0 0 12px #ff0000, 0 0 20px #00ff00, 0 0 28px #0000ff;
+                    animation: rainbowGlow 5s ease infinite, rainbowBG 8s ease infinite;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    width: 90%;
+                    /* Full width on small screens */
+                    max-width: 300px;
+                    /* Limits size on larger screens */
+                    display: block;
+                    margin: 20px auto;
+                    /* Center horizontally */
+                }
+
+                .rainbow-pay-button:hover {
+                    transform: scale(1.12);
+                    box-shadow: 0 0 25px #ff0000, 0 0 35px #00ff00, 0 0 45px #0000ff;
+                }
+
+                @keyframes rainbowGlow {
+                    0% {
+                        box-shadow: 0 0 12px #ff0000, 0 0 20px #ff7f00, 0 0 28px #ffff00;
+                    }
+
+                    25% {
+                        box-shadow: 0 0 12px #00ff00, 0 0 20px #00ffff, 0 0 28px #0000ff;
+                    }
+
+                    50% {
+                        box-shadow: 0 0 12px #8f00ff, 0 0 20px #ff00ff, 0 0 28px #ff0000;
+                    }
+
+                    75% {
+                        box-shadow: 0 0 12px #ffff00, 0 0 20px #ff7f00, 0 0 28px #00ff00;
+                    }
+
+                    100% {
+                        box-shadow: 0 0 12px #ff0000, 0 0 20px #ff7f00, 0 0 28px #ffff00;
+                    }
+                }
+
+                @keyframes rainbowBG {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+
+                /* Make text and button adapt on very small screens */
+                @media (max-width: 400px) {
+                    .rainbow-pay-button {
+                        font-size: 16px;
+                        padding: 12px 24px;
+                    }
+                }
+            </style>
+
+            <a href="https://store.pesapal.com/digitalmindsuganda" target="_blank" style="text-decoration: none;">
+                <button class="rainbow-pay-button">
+                    Pay Now
+                </button>
+            </a>
+
+            <div id="waitingStatus" style="margin-top: 20px; display: none;">
+                <p style="color: #eab308; font-weight: bold;">⌛ Waiting for Admin Approval...</p>
+                <p style="font-size: 0.8rem; color: var(--gray)">We are verifying your Pesapal payment.</p>
+            </div>
+        </div>
+    </div>
+
+    <main id="lessonContent" class="content-locked">
+        <header style="padding: 20px; background: white; border-bottom: 1px solid #e2e8f0;">
+            <strong>DIGITAL MINDS UGANDA</strong>
+        </header>
+        <br>
+        <h3>MICROSOFT WORD 1 of 2</h3>
+        <video width="100%" height="240" controls>
+            <source src="Burna Boy - Kilometre.mp4" type="video/mp4">
+        </video>
+        </div>
+        <div>
+            <h3>MICROSOFT word 2 of 2</h3>
+            <video width="100%" height"240" controls>
+                <source src="Burna Boy - Kilometre.mp4" type="video/mp4" </video>
+        </div>
+    </main>
+
+    <script>
+        let myEmail = "";
+
+        function goToPayment() {
+            myEmail = document.getElementById('studentEmail').value;
+            if (myEmail.includes("@")) {
+                // Save user to a "Pending List" in browser memory
+                let pending = JSON.parse(localStorage.getItem("pendingUsers") || "[]");
+                if (!pending.includes(myEmail)) {
+                    pending.push(myEmail);
+                    localStorage.setItem("pendingUsers", JSON.stringify(pending));
+                }
+
+                document.getElementById('stepLogin').style.display = "none";
+                document.getElementById('stepPayment').style.display = "block";
+                startCheckingForUnlock();
+            } else { alert("Enter a valid email"); }
+        }
+
+        function pay(amt) {
+            alert("Redirecting to Pesapal for $" + amt);
+            document.getElementById('waitingStatus').style.display = "block";
+        }
+
+        function startCheckingForUnlock() {
+            setInterval(() => {
+                const activeUsers = JSON.parse(localStorage.getItem("activeUsers") || "[]");
+                if (activeUsers.includes(myEmail)) {
+                    document.getElementById('gateOverlay').style.display = "none";
+                    document.getElementById('lessonContent').classList.remove('content-locked');
+                }
+            }, 3000); // Check every 3 seconds
+        }
+    </script>
+</body>
+<footer class="auto-style3">
+    <div>
+        <p class="auto-style3">Digital Minds Uganda</p>
+        <p class="auto-style3">© 2026-2027 Digital minds Uganda</p>
+    </div>
+</footer>
+
+</html>

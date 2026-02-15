@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL MINDS UGANDA</title>
+    <link rel="icon" type="image/png" href="digital minds Uganda vvv.png" />
+    <script src="scr.css"></script>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Digital Minds Encyclopedia | All-in-One Learning</title>
+        <style>
+            :root {
+                --primary: #2563eb;
+                --secondary: #1e40af;
+                --dark: #0f172a;
+                --text: #334155;
+                --bg: #f8fafc;
+                --border: #e2e8f0;
+            }
+
+            body {
+                font-family: 'Inter', system-ui, sans-serif;
+                background-color: var(--bg);
+                color: var(--dark);
+                margin: 0;
+                line-height: 1.8;
+                scroll-behavior: smooth;
+            }
+
+            .container {
+                max-width: 1000px;
+                margin: auto;
+                padding: 60px 20px;
+            }
+
+            /* Header & Search */
+            .header {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            .search-wrapper {
+                position: sticky;
+                top: 20px;
+                z-index: 100;
+                max-width: 600px;
+                margin: 0 auto 60px auto;
+            }
+
+            .search-wrapper input {
+                width: 100%;
+                padding: 18px 25px 18px 55px;
+                border-radius: 40px;
+                border: 2px solid var(--border);
+                font-size: 1rem;
+                outline: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                transition: 0.3s;
+            }
+
+            .search-wrapper input:focus {
+                border-color: var(--primary);
+                box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+            }
+
+            /* Article Cards */
+            .article {
+                background: white;
+                border-radius: 28px;
+                padding: 45px;
+                margin-bottom: 50px;
+                border: 1px solid var(--border);
+                transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .article:hover {
+                border-color: var(--primary);
+                transform: scale(1.01);
+            }
+
+            .tag {
+                background: #eff6ff;
+                color: var(--primary);
+                padding: 6px 16px;
+                border-radius: 50px;
+                font-weight: 800;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+            }
+
+            .image-box {
+                width: 100%;
+                height: 400px;
+                background: #f1f5f9;
+                border-radius: 20px;
+                margin: 25px 0;
+                overflow: hidden;
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .image-box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+                margin: 15px 0;
+                color: var(--dark);
+            }
+
+            /* The Content Logic */
+            .article-body {
+                color: var(--text);
+                font-size: 1rem;
+            }
+
+            .extended-content {
+                display: none;
+                margin-top: 20px;
+                border-top: 1px dashed var(--border);
+                padding-top: 20px;
+            }
+
+            .extended-content.active {
+                display: block;
+            }
+
+            .btn-toggle {
+                background: var(--primary);
+                color: white;
+                border: none;
+                padding: 14px 35px;
+                border-radius: 12px;
+                font-weight: 700;
+                cursor: pointer;
+                margin-top: 25px;
+                transition: 0.3s;
+            }
+
+            .btn-toggle:hover {
+                background: var(--secondary);
+                box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            }
+
+            /* Smooth animation for text reveal */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .active {
+                animation: fadeIn 0.5s ease;
+            }
+
+            .main-footer {
+                background-color: gainsboro;
+                color: white;
+                padding: 60px 20px;
+                margin-top: 50px;
+            }
+
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .footer-logo {
+                font-size: 1.5rem;
+                font-weight: 800;
+                margin-bottom: 20px;
+            }
+
+            .footer-logo span {
+                color: #2563eb;
+            }
+
+            .footer-links {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                gap: 30px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-links a:hover {
+                color: white
+            }
+
+            .copyright {
+                font-size: 0.9rem;
+                color: #64748b;
+                border-top: 1px solid #1e293b;
+                padding-top: 20px;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 style="font-size: 2.8rem; letter-spacing: -1px;">Digital Minds <span
+                    style="color: var(--primary);">Knowledge Base</span></h1>
+            <p style="font-size: 1.2rem; color: #64748b;">The Complete Tech skill from various topics;
+            </p>
+        </div>
+
+        <div class="search-wrapper">
+            <span style="position:absolute; left:25px; top:18px; font-size: 1.2rem;">🔍</span>
+            <input type="text" id="searchInput" onkeyup="searchArticles()"
+                placeholder="Type a topic (e.g., Python, Cybersecurity, Excel)...">
+        </div>
+
+        <div id="news-grid">
+
+            <article class="article">
+                <span class="tag">Office Automation</span>
+                <h2 class="article-title">1. Advanced Data Science with MS Excel</h2>
+                <div class="image-box">
+                    <img src="fa757d90498c243248976a0e6547e79a.jpg" alt="Excel Visualization">
+                </div>
+                <div class="article-body">
+                    <p>Microsoft Excel is the engine behind global commerce. In the Ugandan context, mastering Excel
+                        means more than just entering numbers; it means becoming a decision-maker. Businesses in Kampala
+                        rely on spreadsheets to manage everything from payroll to complex supply chains.</p>
+                    <div class="extended-content">
+                        <p>To truly master Excel, one must understand <strong>Data Normalization</strong>. This involves
+                            organizing data to reduce redundancy and improve integrity. We dive deep into <strong>Pivot
+                                Tables</strong>, which allow you to take massive datasets and slice them into meaningful
+                            summaries. For example, a retail manager can use a Pivot Table to immediately identify which
+                            branch is underperforming and why.</p>
+                        <p>We also cover <strong>Logical Formulas</strong>. Using nested IF statements, IFERROR, and IFS
+                            allows for the creation of self-correcting financial models. Furthermore, we explore
+                            <strong>VLOOKUP, HLOOKUP, and the modern XLOOKUP</strong>, which are essential for
+                            connecting data across multiple workbooks. In a competitive job market, an employee who can
+                            build an automated dashboard in Excel is worth three employees who can only type. By the end
+                            of this module, you will understand how to use Power Query to clean messy data and create
+                            professional visual reports that tell a story.
+                        </p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Administration</span>
+                <h2 class="article-title">2. Professional Corporate Documentation</h2>
+                <div class="image-box">
+                    <img src="images (4).jpeg" alt="Professional Word Layout">
+                </div>
+                <div class="article-body">
+                    <p>A document is often the first impression a business makes. Whether it is a grant proposal for an
+                        NGO or a legal contract, the formatting of Microsoft Word documents signals the level of
+                        professionalism and attention to detail within an organization.</p>
+                    <div class="extended-content">
+                        <p>This module focuses on <strong>Styles and Architectural Consistency</strong>. By using the
+                            Styles Pane, you can manage fonts and spacing across a 100-page document instantly. This is
+                            vital for <strong>Automatic Table of Contents</strong> and Cross-referencing, which are
+                            mandatory for academic and legal writing. We also teach <strong>Section Breaks and Page
+                                Numbering logic</strong>, allowing you to have different headers for different chapters.
+                        </p>
+                        <p>Advanced features like <strong>Mail Merge</strong> are also covered, enabling the mass
+                            production of personalized certificates or invoices. We discuss <strong>Collaborative
+                                Reviewing</strong>, teaching you how to use Track Changes to work with teams without
+                            losing the original draft's integrity. Understanding Word at this level transforms a
+                            "typist" into a Document Architect, capable of handling high-stakes administrative tasks for
+                            any international organization in East Africa.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Web Development</span>
+                <h2 class="article-title">3. Modern Web Architecture (HTML5 & CSS3)</h2>
+                <div class="image-box">
+                    <img src="images (16).jpeg" alt="Code structure">
+                </div>
+
+                <div class="article-body">
+                    <p>The web is built on HTML and CSS. HTML is the skeleton; CSS is the aesthetic. To build a
+                        successful online presence for a Ugandan brand, you must understand how to code these from
+                        scratch to ensure speed and Search Engine Optimization (SEO).</p>
+                    <div class="extended-content">
+                        <p>In this module, we move beyond basic tags. We explore <strong>Semantic HTML</strong>, which
+                            helps Google’s robots understand that a <code>&lt;nav&gt;</code> is a menu and an
+                            <code>&lt;article&gt;</code> is a blog post. This is the secret to getting a business to the
+                            first page of search results. In CSS, we focus on <strong>Responsive Design</strong> using
+                            Flexbox and CSS Grid. These tools ensure that your website looks perfect on a cheap
+                            smartphone, a tablet, and a 4K monitor.
+                        </p>
+                        <p>We also cover the <strong>Box Model</strong>, the fundamental concept of margins, borders,
+                            and padding that governs every element on a screen. You will learn about <strong>CSS
+                                Variables</strong> for easy branding and <strong>Keyframe Animations</strong> to bring
+                            your site to life. By mastering these two languages, you gain the power to turn any creative
+                            vision into a functional, global-reaching website without relying on expensive, slow website
+                            builders.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Programming</span>
+                <h2 class="article-title">4. Logic & Data Automation with Python</h2>
+                <div class="image-box">
+                    <img src="images (2).jpeg" alt="Python programming">
+                </div>
+                <div class="article-body">
+                    <p>Python is the world’s most versatile language. It is used for everything from Artificial
+                        Intelligence to simple office automation. For a student at Digital Minds Uganda, Python
+                        represents the ultimate tool for problem-solving in the digital era.</p>
+                    <div class="extended-content">
+                        <p>We start with <strong>Functional Programming basics</strong>: variables, integers, strings,
+                            and boolean logic. But the real power of Python lies in its <strong>Data
+                                Structures</strong>—Lists, Tuples, and Dictionaries. These allow you to store and
+                            manipulate massive amounts of data. We then transition into <strong>Object-Oriented
+                                Programming (OOP)</strong>, which teaches you how to build scalable, professional
+                            software using Classes and Objects.</p>
+                        <p>Finally, we look at Python’s <strong>ecosystem of libraries</strong>. You will learn about
+                            <em>NumPy</em> and <em>Pandas</em> for data analysis, and <em>Requests</em> for interacting
+                            with web APIs. Imagine writing a script that automatically checks the weather and sends a
+                            WhatsApp alert to farmers, or a script that scrapes price data from Jumia to find the best
+                            deals. Python makes this possible. It is a language that grows with you, from your first
+                            "Hello World" to your first AI model.
+                        </p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Coding</span>
+                <h2 class="article-title">5. Client-Side Interactivity with JavaScript</h2>
+                <div class="image-box">
+                    <img src="images (15).jpeg" alt="JS interactive code">
+                </div>
+                <div class="article-body">
+                    <p>If HTML is the skeleton and CSS is the skin, JavaScript is the brain. It is the language that
+                        makes websites "think." Without JavaScript, the modern web would be static and boring; with it,
+                        we have apps like Facebook, Uber, and WhatsApp Web.</p>
+                    <div class="extended-content">
+                        <p>This module focuses on <strong>DOM Manipulation</strong>—the ability to change HTML content
+                            in real-time based on user input. We cover <strong>Event Listeners</strong>, which allow
+                            your site to react to clicks, mouse movements, and keyboard presses. We also explore
+                            <strong>Asynchronous JavaScript (AJAX & Fetch)</strong>, which is how modern apps load data
+                            in the background without refreshing the page.
+                        </p>
+                        <p>You will learn about <strong>ES6+ features</strong> like Arrow Functions, Template Literals,
+                            and Destructuring, which are the standard in modern software companies. Understanding
+                            JavaScript is the bridge to advanced frameworks like React and Vue. In the current job
+                            market, a "Front-End Developer" who truly understands JavaScript logic is one of the most
+                            sought-after professionals in the global tech economy.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Security</span>
+                <h2 class="article-title">6. Ethical Hacking & Data Defense</h2>
+                <div class="image-box">
+                    <img src="012822_ElMallah.jpg" alt="Cybersecurity">
+                </div>
+                <div class="article-body">
+                    <p>As Uganda moves its banking and government services online, the threat of cybercrime grows.
+                        Cybersecurity is no longer just for "IT guys"; it is a foundational skill for every digital
+                        citizen and business owner.</p>
+                    <div class="extended-content">
+                        <p>This module explains the <strong>CIA Triad</strong>: Confidentiality, Integrity, and
+                            Availability. We teach you how to identify <strong>Phishing and Social Engineering</strong>
+                            attacks, which are the most common ways people are hacked in East Africa. You will learn
+                            about <strong>Network Security</strong>, including how Firewalls and VPNs work to protect
+                            data as it travels across the internet.</p>
+                        <p>We also dive into <strong>Encryption basics</strong>—understanding how data is scrambled so
+                            that even if a hacker steals it, they cannot read it. Finally, we discuss <strong>Identity
+                                and Access Management (IAM)</strong>, teaching you how to secure accounts using
+                            Multi-Factor Authentication (MFA). In an age where data is more valuable than oil, knowing
+                            how to defend that data is a superpower that protects both your finances and your
+                            reputation.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Creative Arts</span>
+                <h2 class="article-title">7. Visual Communication & Brand Design</h2>
+                <div class="image-box">
+                    <img src="file_00000000233871fda048b9805f094342.png" alt="Design layout">
+                </div>
+                <div class="article-body">
+                    <p>Design is the first thing a customer sees. Whether it is a logo on a billboard in Wandegeya or an
+                        Instagram ad, great design builds trust and drives sales. Graphic design is the art of solving
+                        problems visually.</p>
+                    <div class="extended-content">
+                        <p>We start with the <strong>Principles of Design</strong>: Balance, Contrast, Emphasis, and
+                            Proximity. Understanding these allows you to guide a viewer's eye to the most important
+                            information first. We also cover <strong>Color Theory</strong>—learning how different colors
+                            evoke different emotions (for example, why banks often use blue for trust).
+                            <strong>Typography</strong> is another key focus; choosing the right font can make a brand
+                            look luxury, friendly, or professional.
+                        </p>
+                        <p>This module introduces industry-standard tools like <strong>Photoshop and
+                                Illustrator</strong>, as well as modern tools like <strong>Canva and Figma</strong>. You
+                            will learn how to create "Vector" graphics that never lose quality, no matter how large you
+                            print them. By the end of this module, you won't just be "making things look pretty"; you
+                            will be creating visual identities that help businesses stand out in a crowded marketplace.
+                        </p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Business Growth</span>
+                <h2 class="article-title">8. Strategic Marketing & SEO</h2>
+                <div class="image-box">
+                    <img src="images (1).jpeg" alt="Social Media Marketing">
+                </div>
+                <div class="article-body">
+                    <p>Having a great product is useless if nobody knows it exists. Digital Marketing is the science of
+                        putting your product in front of the right people at the right time. In Uganda, this primarily
+                        involves Social Media and Search Engines.</p>
+                    <div class="extended-content">
+                        <p>We focus heavily on <strong>Content Marketing</strong>—creating valuable information that
+                            attracts customers rather than just shouting at them with ads. You will learn about
+                            <strong>SEO (Search Engine Optimization)</strong>, which is the process of ranking your
+                            website #1 on Google for free. This involves Keyword Research and Backlink strategies.
+                        </p>
+                        <p>We also cover <strong>Social Media Marketing (SMM)</strong>, specifically how to use the
+                            Facebook Pixel and Instagram Ads to target people based on their interests and location.
+                            Finally, we discuss <strong>Analytics</strong>. You will learn how to use tools like Google
+                            Analytics to see exactly where your customers are coming from and what they are doing on
+                            your site. This data-driven approach ensures that every shilling you spend on marketing
+                            brings a return on investment.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Programming</span>
+                <h2 class="article-title">9. Mobile Ecosystems & App Creation</h2>
+                <div class="image-box">
+                    <img src="images (3).jpeg" alt="Mobile App Development">
+                </div>
+                <div class="article-body">
+                    <p>Uganda is a "mobile-first" nation. Most people access the internet via their phones, not
+                        computers. This means that businesses that provide a smooth mobile experience through an app
+                        have a massive advantage over their competitors.</p>
+                    <div class="extended-content">
+                        <p>In this module, we explore the difference between <strong>Native, Hybrid, and Progressive Web
+                                Apps (PWAs)</strong>. We focus on <strong>Cross-Platform Development</strong> using
+                            frameworks like Flutter or React Native. These allow a single developer to build an app for
+                            both Android and iPhone at the same time, saving time and money.</p>
+                        <p>We also discuss <strong>User Interface (UI) and User Experience (UX)</strong> for mobile.
+                            This involves designing buttons that are easy to tap with a thumb and ensuring the app works
+                            even on slow 3G connections. You will learn about the <strong>App Store and Play Store
+                                submission process</strong>, as well as how to integrate mobile payments (like MTN MoMo
+                            and Airtel Money) directly into your app. App development is one of the highest-paying
+                            skills in the world today.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+            <article class="article">
+                <span class="tag">Data Systems</span>
+                <h2 class="article-title">10. Database Logic & SQL Mastery</h2>
+                <div class="image-box">
+                    <img src="images.jpeg" alt="SQL query code">
+                </div>
+
+                <div class="article-body">
+                    <p>Every major app, from a hospital records system to a bank’s transaction ledger, runs on a
+                        database. SQL (Structured Query Language) is the universal language used to talk to these
+                        databases and retrieve information.</p>
+                    <div class="extended-content">
+                        <p>We begin with <strong>Relational Database theory</strong>—understanding how to link different
+                            tables of information (like linking a "Customer" table to an "Orders" table). You will learn
+                            core SQL commands: <strong>SELECT, INSERT, UPDATE, and DELETE</strong>. These allow you to
+                            manage records with precision. We then move into <strong>Joins and Aggregations</strong>,
+                            which allow you to answer complex business questions like "What was our total revenue from
+                            female customers in Jinja last month?"</p>
+                        <p>Database management also involves <strong>Security and Backup strategies</strong>. You will
+                            learn how to prevent "SQL Injection" attacks and how to ensure that if a server crashes, the
+                            data is not lost. In the world of Big Data, SQL is the most fundamental skill for any
+                            Back-End Developer or Data Scientist. Mastering SQL means you can handle the most precious
+                            asset of the 21st century: Information.</p>
+                    </div>
+                    <button class="btn-toggle" onclick="toggleContent(this)">Read Detailed Guide</button>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <script>
+        // 1. SMART SEARCH ENGINE
+        function searchArticles() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let articles = document.getElementsByClassName('article');
+
+            for (let i = 0; i < articles.length; i++) {
+                let title = articles[i].querySelector('.article-title').innerText.toLowerCase();
+                let body = articles[i].querySelector('.article-body').innerText.toLowerCase();
+                let tag = articles[i].querySelector('.tag').innerText.toLowerCase();
+
+                // Search matches title, tag, or the short description
+                if (title.includes(input) || body.includes(input) || tag.includes(input)) {
+                    articles[i].style.display = "block";
+                } else {
+                    articles[i].style.display = "none";
+                }
+            }
+        }
+
+        // 2. READ MORE / LESS TOGGLE
+        function toggleContent(btn) {
+            let content = btn.previousElementSibling.querySelector('.extended-content');
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                btn.innerText = "Read Detailed Guide";
+                // Scroll back to the top of the article smoothly
+                btn.parentElement.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                content.classList.add('active');
+                btn.innerText = "Show Less";
+            }
+        }
+    </script>
+
+</body>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-logo">Digital Minds<span>Uganda</span></div>
+        <ul class="footer-links">
+            <li><a href="HOME.html">BACK</a></li>
+        </ul>
+    </div>
+    <p class="copyright">&copy; 2026-2027 Digital minds Uganda. All Rights Reserved.</p>
+</footer>
+
+</html>

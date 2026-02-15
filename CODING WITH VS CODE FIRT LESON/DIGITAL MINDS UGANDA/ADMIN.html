@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL MINDS UGANDA</title>
+    <link rel="icon" type="image/png" href="digital minds Uganda vvv.png" />
+    <link rel="stylesheet" href="styles.css">
+    <title>DIGITAL MINDS UGANDA</title>
+    <marquee class="marquee" behavior="scroll" direction="left">
+        Welcome to digital minds Uganda! Join our oline ICT classes and boost your tech skills!
+    </marquee>
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | DMU</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --danger: #ef4444;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5f9;
+            padding: 20px;
+        }
+
+        /* LOCK SCREEN STYLE */
+        #adminLockScreen {
+            position: fixed;
+            inset: 0;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* DASHBOARD STYLE */
+        .panel {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+            color: #64748b;
+            border-bottom: 2px solid #f1f5f9;
+            padding: 10px;
+        }
+
+        td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .btn-unlock {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="adminLockScreen">
+        <div class="login-box">
+            <h2>DMU Admin Login</h2>
+            <p>Enter Master Password to manage students</p>
+            <input type="password" id="adminPass" placeholder="••••••••"
+                style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;">
+            <button onclick="checkAdminPass()"
+                style="width:100%; padding:12px; background:var(--primary); color:white; border:none; border-radius:8px; cursor:pointer;">Access
+                Dashboard</button>
+        </div>
+    </div>
+
+    <div class="panel" id="dashboardPanel">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>Student Access Control</h1>
+            <button onclick="logout()"
+                style="color:var(--danger); border:none; background:none; cursor:pointer;">Logout</button>
+        </div>
+        <p>Step: 1. Verify Pesapal SMS/Email -> 2. Find Email Below -> 3. Click Unlock.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Email</th>
+                    <th>Current Status</th>
+                    <th>Manual Action</th>
+                </tr>
+            </thead>
+            <tbody id="adminList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const MASTER_PASS = "DigitalMinds@2026!";
+
+        function checkAdminPass() {
+            const input = document.getElementById('adminPass').value;
+            if (input === MASTER_PASS) {
+                document.getElementById('adminLockScreen').style.display = "none";
+                document.getElementById('dashboardPanel').style.display = "block";
+                loadUsers();
+            } else {
+                alert("Incorrect Password!");
+            }
+        }
+
+        function loadUsers() {
+            const pending = JSON.parse(localStorage.getItem("pendingUsers") || "[]");
+            const active = JSON.parse(localStorage.getItem("activeUsers") || "[]");
+            const list = document.getElementById('adminList');
+            list.innerHTML = "";
+
+            if (pending.length === 0) {
+                list.innerHTML = "<tr><td colspan='3' style='text-align:center'>No students have signed in yet.</td></tr>";
+                return;
+            }
+
+            pending.forEach(email => {
+                const isActive = active.includes(email);
+                list.innerHTML += `
+                    <tr>
+                        <td>${email}</td>
+                        <td><span style="color:${isActive ? 'green' : 'orange'}">${isActive ? '● Unlocked' : '● Awaiting Payment'}</span></td>
+                        <td>
+                            ${isActive ? '<button disabled style="opacity:0.5">Access Active</button>' : `<button class="btn-unlock" onclick="unlock('${email}')">Grant Access</button>`}
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function unlock(email) {
+            let active = JSON.parse(localStorage.getItem("activeUsers") || "[]");
+            if (!active.includes(email)) {
+                active.push(email);
+                localStorage.setItem("activeUsers", JSON.stringify(active));
+            }
+            alert("SUCCESS: Access granted for " + email);
+            loadUsers();
+        }
+
+        function logout() { location.reload(); }
+
+        // Auto-refresh the list every 10 seconds to catch new signups
+        setInterval(() => {
+            if (document.getElementById('dashboardPanel').style.display === "block") {
+                loadUsers();
+            }
+        }, 10000);
+    </script>
+</body>
+<footer class="auto-style3">
+    <div>
+        <p class="auto-style3">Digital Minds Uganda</p>
+        <p class="auto-style3">© 2026-2027 Digital minds Uganda</p>
+    </div>
+</footer>
+
+</html>

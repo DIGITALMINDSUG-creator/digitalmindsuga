@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL MINDS UGANDA</title>
+    <link rel="icon" type="image/png" href="digital minds Uganda vvv.png" />
+    <link rel="stylesheet" href="styles.css">
+    <title>DIGITAL MINDS UGANDA</title>
+    <marquee class="marquee" behavior="scroll" direction="left">
+        Welcome to digital minds Uganda! Join our oline ICT classes and boost your tech skills!
+    </marquee>
+</head>
+
+<body>
+    <h1>DIGITAL MINDS UGANDA</h1>
+
+    <head>
+        <nav style="display: flex; gap: 15px; padding: 20px; background: white; border-bottom: 1px solid #e2e8f0;">
+            <a href="lesson.html" class="nav-btn" onclick="goToPage(this, event)">
+                <span class="btn-text">Lessons</span>
+                <div class="spinner"></div>
+            </a>
+            <a href="blog.html" class="nav-btn" onclick="goToPage(this, event)">
+                <span class="btn-text">Blog</span>
+                <div class="spinner"></div>
+            </a>
+            <a href="contact.html" class="nav-btn" onclick="goToPage(this, event)">
+                <span class="btn-text">Contact</span>
+                <div class="spinner"></div>
+            </a>
+        </nav>
+
+        <style>
+            /* Same styles as before for the professional look */
+            .nav-btn {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 24px;
+                background: #f8fafc;
+                color: #0f172a;
+                text-decoration: none;
+                font-weight: 700;
+                border-radius: 10px;
+                border: 1px solid #e2e8f0;
+                transition: all 0.3s ease;
+                min-width: 100px;
+            }
+
+            .spinner {
+                display: none;
+                width: 18px;
+                height: 18px;
+                border: 3px solid rgba(37, 99, 235, 0.3);
+                border-top: 3px solid #2563eb;
+                border-radius: 50%;
+                animation: spin 0.8s linear infinite;
+                position: absolute;
+            }
+
+            @keyframes spin {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .nav-btn.loading .btn-text {
+                visibility: hidden;
+            }
+
+            .nav-btn.loading .spinner {
+                display: block;
+            }
+
+            .nav-btn.loading {
+                background: #eff6ff;
+                border-color: #2563eb;
+            }
+        </style>
+
+        <script>
+            function goToPage(element, event) {
+                // 1. Stop the browser from leaving immediately
+                event.preventDefault();
+
+                // 2. Get the destination URL (e.g., "blog.html")
+                const destination = element.getAttribute('href');
+
+                // 3. Show the animation
+                element.classList.add('loading');
+
+                // 4. Wait for the animation to finish (e.g., 0.7 seconds)
+                setTimeout(() => {
+                    // 5. Tell the browser to go to the new page
+                    window.location.href = destination;
+                }, 700);
+            }
+        </script>
+
+        </header>
+        <p>Wecome to digital minds uganda, your premier online learning platform for specific areas of expertise ,E.g.
+            Web development, Digital Marketing,etc;<br>
+            Our expert instructors create engaging and interactive lessons,designed to help you learn at your own pace
+        </p><br>
+        <p>"Digital minds Uganda offers online ICT classes,resources, and mentorship for students globally.We empower
+            learners with practical skills for
+            the digitgal world. Join our community andd boost your tech journey with us"</p>
+        <h2>OUR MISSION</h2>
+        <P>"Providing accessible,quality ICT education to thrive in the digital era,"</P>
+        <h3>SERVICE OFFERED</h3>
+
+        Oline ICT classes of all levels of education."coding and programming,etc" (live and recorded),
+        Exam prep and revision materials.(e.g.,tutorials,notes,past papers,
+        Career guidence and mentorship,
+        <br>
+
+        <div style="overflow-x: auto; margin: 50px 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <h2
+                style="color: #0f172a; font-size: 1.8rem; margin-bottom: 25px; border-left: 5px solid #2563eb; padding-left: 15px;">
+                Institutional Milestones
+            </h2>
+
+            <table style="width: 100%; border-collapse: collapse; background: #ffffff;">
+                <thead>
+                    <tr style="border-top: 2px solid #0f172a; border-bottom: 2px solid #0f172a;">
+                        <th
+                            style="padding: 20px; text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #64748b;">
+                            Visual</th>
+                        <th
+                            style="padding: 20px; text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #64748b;">
+                            Official Recognition</th>
+                        <th
+                            style="padding: 20px; text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #64748b;">
+                            Impact Summary</th>
+                        <th
+                            style="padding: 20px; text-align: right; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #64748b;">
+                            Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="business-row">
+                        <td style="padding: 20px;">
+                            <div class="achievement-frame">
+                                <img src="images (14).jpeg" alt="Award" class="zoom-effect">
+                            </div>
+                        </td>
+                        <td style="padding: 20px;">
+                            <span
+                                style="display: block; font-weight: 800; color: #0f172a; font-size: 1.1rem;">Excellence
+                                in
+                                Digital Training</span>
+                            <span style="font-size: 0.85rem; color: #2563eb; font-weight: 600;">International Tech
+                                Board</span>
+                        </td>
+                        <td style="padding: 20px; color: #475569; font-size: 0.95rem; line-height: 1.5;">
+                            Recognized for the successful skill development of 500+ Ugandan youths in cloud computing
+                            and
+                            digital strategy.
+                        </td>
+                        <td style="padding: 20px; text-align: right; font-weight: 600; color: #64748b;">2025</td>
+                    </tr>
+
+                    <tr class="business-row">
+                        <td style="padding: 20px;">
+                            <div class="achievement-frame">
+                                <img src="images (4).jpeg" alt="Certification" class="zoom-effect">
+                            </div>
+                        </td>
+                        <td style="padding: 20px;">
+                            <span style="display: block; font-weight: 800; color: #0f172a; font-size: 1.1rem;">Fintech
+                                Integration Partner</span>
+                            <span style="font-size: 0.85rem; color: #2563eb; font-weight: 600;">PesaPal East
+                                Africa</span>
+                        </td>
+                        <td style="padding: 20px; color: #475569; font-size: 0.95rem; line-height: 1.5;">
+                            Certified for maintaining 99.9% uptime in digital payment processing for cross-border
+                            educational
+                            services.
+                        </td>
+                        <td style="padding: 20px; text-align: right; font-weight: 600; color: #64748b;">2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <style>
+            /* Framework for the image container */
+            .achievement-frame {
+                width: 140px;
+                height: 90px;
+                border-radius: 4px;
+                overflow: hidden;
+                border: 1px solid #e2e8f0;
+                background: #f1f5f9;
+            }
+
+            /* Elegant Zoom Effect */
+            .zoom-effect {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            .business-row:hover .zoom-effect {
+                transform: scale(1.15);
+            }
+
+            /* Business Row Hover */
+            .business-row {
+                border-bottom: 1px solid #f1f5f9;
+                transition: background 0.3s ease;
+            }
+
+            .business-row:hover {
+                background-color: #fafafa;
+            }
+
+            /* Professional shadow for the images on hover */
+            .business-row:hover .achievement-frame {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-color: #2563eb;
+            }
+        </style>
+
+        <script src="script.js"></script>
+</body>
+<footer class="auto-style3">
+    <div class="footer-col">
+        <h3>Connect</h3>
+        <ul class="social-links">
+            <li>
+                <a href="https://wa.me/256709539676" target="_blank" class="wa wa-animated">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </li>
+            <li><a href="https://www.Instagram.com/meddisonofficial?igsh=eDc5djhbGQ4cXZ0" class="ig"><i
+                        class="fa-brands fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://x.com/med2025x" class="tw"><i class="fa-brands fa-x-twitter"></i> Twitter</a></li>
+            <li><a href="https://www.Youtube.com/@digitalmindsuganda" class="yt"><i class="fa-brands fa-youtube"></i>
+                    YouTube</a></li>
+        </ul>
+    </div>
+    <div>
+        <p class="auto-style3">Digital Minds Uganda</p>
+        <p class="auto-style3">© 2026-2027 Digital minds Uganda</p>
+    </div>
+</footer>
+
+</html>
